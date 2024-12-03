@@ -70,6 +70,16 @@ class BST {
         }
         return data;
     }
+
+    // tree traversal using dfs(preorder)
+    dfsPreorder(node = this.root, data = []) {
+        if(node === null) return data;
+        data.push(node.value);
+        if(node.left) this.dfsPreorder(node.left, data);
+        if(node.right) this.dfsPreorder(node.right, data);
+
+        return data;
+    }
 }
 
 const tree = new BST();
@@ -83,4 +93,5 @@ tree.insert(4);
 
 console.log(tree.includes(10));
 console.log(tree.bfs())
+console.log(tree.dfsPreorder())
 console.log(tree)
