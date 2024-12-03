@@ -89,6 +89,15 @@ class BST {
         data.push(node.value)
         return data;
     }
+
+    // tree traversal using dfs(inorder)
+    dfsInorder(node = this.root, data = []) {
+        if(node === null) return data;
+        if(node.left) this.dfsInorder(node.left, data);
+        data.push(node.value)
+        if(node.right) this.dfsInorder(node.right, data);
+        return data;
+    }
 }
 
 const tree = new BST();
@@ -104,4 +113,5 @@ console.log(tree.includes(10));
 console.log(tree.bfs())
 console.log(tree.dfsPreorder())
 console.log(tree.dfsPostorder())
+console.log(tree.dfsInorder())
 console.log(tree)
