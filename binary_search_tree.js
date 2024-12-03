@@ -54,6 +54,22 @@ class BST {
         }
         return false;
     }
+
+    // tree traversal using bfs
+    bfs() {
+        if(!this.root) return null;
+        let queue = [];
+        let data = [];
+        let current = this.root;
+        queue.push(current);
+        while(queue.length) {
+            current = queue.shift();
+            data.push(current.value);
+            if(current.left) queue.push(current.left);
+            if(current.right) queue.push(current.right);
+        }
+        return data;
+    }
 }
 
 const tree = new BST();
@@ -66,5 +82,5 @@ tree.insert(1);
 tree.insert(4);
 
 console.log(tree.includes(10));
-
+console.log(tree.bfs())
 console.log(tree)
